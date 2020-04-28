@@ -1,0 +1,6 @@
+voltage divider netlist
+* http://ngspice.sourceforge.net/ngspice-tutorial.html
+V1 in 0 5
+R1 in out 1k
+R2 out 0 2k
+.end
