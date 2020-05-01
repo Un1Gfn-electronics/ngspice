@@ -1,0 +1,21 @@
+.title dual rc ladder
+
+V1 in  0   DC 0 PULSE(0 5 1u 1u 1u 1 1)
+C1 int 0   1u
+C2 out 0 100n
+
+R1 in  int 10k
+R2 int out  1k
+
+.tran 50ms 100ms
+
+.control
+  run
+  plot in
+  plot int out
+  plot time vs int
+  plot time vs out
+  plot int vs out
+.endc
+
+.end
