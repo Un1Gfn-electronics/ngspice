@@ -1,0 +1,19 @@
+* https://www.youtube.com/watch?v=_vKeaPHXF9U&list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS&index=15
+
+.title V-I Characteristics of PN Junction Diode
+
+V1 a 0 dc 0 PULSE (-40 40 10s 100s)
+
+* R1 a b 1k
+* .save all @r1[i]
+
+* D1 b 0
+
+.tran 1s 200s
+
+.control
+  run
+  plot a
+.endc
+
+.end
