@@ -2,18 +2,19 @@
 
 .title V-I Characteristics of PN Junction Diode
 
-V1 a 0 dc 0 PULSE (-40 40 10s 100s)
+V1 a 0 dc 0 PULSE (-10v 10v 10s 100s)
 
-* R1 a b 1k
-* .save all @r1[i]
+R1 a b  1
+.save all @r1[i]
 
-* D1 b 0
+D1 b 0 myDiode
+.model myDiode D(IS=0.25A JSW=0.25A IBV=0.25A BV=8v)
 
 .tran 1s 200s
 
 .control
   run
-  plot a
+  plot @r1[i] vs a
 .endc
 
 .end
