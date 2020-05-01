@@ -6,6 +6,7 @@ V1 a 0    dc 0 PULSE (0 9 1u 1u 1u 1 1)
 C1 b 0 1000u
 
 R1 a b    3k
+.save all @r1[i]
 
 .tran 1s 100s
 
@@ -13,6 +14,7 @@ R1 a b    3k
   run
   plot a b ylimit 0 11
   plot a b ylimit 8.999 9.001 xlimit 30 40
+  plot @r1[i] vs b
 .endc
 
 .end
