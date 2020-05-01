@@ -6,6 +6,22 @@
 
 ###### Experiments
 
+```
+cd /home/darren/ngspice/ngspice.sourceforge.net_ngspice-tutorial.html
+
+ngspice vdiv.cir
+...
+run
+plot in out ylimit 0 1
+...
+op
+print out
+...
+quit
+
+
+```
+
 Cleanup
 ```bash
 rm -r ngspice-31/

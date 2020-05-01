@@ -1,6 +1,11 @@
 voltage divider netlist
-* http://ngspice.sourceforge.net/ngspice-tutorial.html
-V1 in 0 5
-R1 in out 1k
-R2 out 0 2k
+
+.options TEMP=27 TNOM=27
+
+V1 in  0   1
+R1 out in  1k
+R2 0   out 2k
+
+.tran 1ns 3ns
+
 .end
