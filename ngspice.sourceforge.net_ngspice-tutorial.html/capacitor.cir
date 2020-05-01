@@ -9,4 +9,10 @@ R1 a b    3k
 
 .tran 1s 100s
 
+.control
+  run
+  plot a b ylimit 0 11
+  plot a b ylimit 8.999 9.001 xlimit 30 40
+.endc
+
 .end

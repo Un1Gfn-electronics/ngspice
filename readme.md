@@ -15,18 +15,8 @@ tar xf ngspice-31.tar.gz
 http://ngspice.sourceforge.net/ngspice-tutorial.html
 ```
 cd /home/darren/ngspice/ngspice.sourceforge.net_ngspice-tutorial.html
-
 ngspice vdiv.cir
-run
-plot in out ylimit 0 1
-op
-print out
-
 ngspice capacitor.cir
-run
-plot a b ylimit 0 11
-plot a b ylimit 8.999 9.001 xlimit 30 40
-
 ```
 
 Inverter
