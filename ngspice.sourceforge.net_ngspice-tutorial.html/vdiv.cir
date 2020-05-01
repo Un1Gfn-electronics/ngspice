@@ -1,5 +1,4 @@
-voltage divider netlist
-
+.title voltage divider netlist
 .options TEMP=27 TNOM=27
 
 V1 in  0   1

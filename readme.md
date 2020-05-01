@@ -6,26 +6,27 @@
 
 ###### Experiments
 
-```
-cd /home/darren/ngspice/ngspice.sourceforge.net_ngspice-tutorial.html
-
-ngspice vdiv.cir
-...
-run
-plot in out ylimit 0 1
-...
-op
-print out
-...
-quit
-
-
-```
-
 Cleanup
 ```bash
 rm -r ngspice-31/
 tar xf ngspice-31.tar.gz
+```
+
+http://ngspice.sourceforge.net/ngspice-tutorial.html
+```
+cd /home/darren/ngspice/ngspice.sourceforge.net_ngspice-tutorial.html
+
+ngspice vdiv.cir
+run
+plot in out ylimit 0 1
+op
+print out
+
+ngspice capacitor.cir
+run
+plot a b ylimit 0 11
+plot a b ylimit 8.999 9.001 xlimit 30 40
+
 ```
 
 Inverter
@@ -60,6 +61,8 @@ popd
 * [doc (online)](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml)
 * [doc (external) (BSIM)](http://ngspice.sourceforge.net/literature.html)
 * [books](http://ngspice.sourceforge.net/books.html)
+* [LTwiki](http://ltwiki.org/index.php?title=C_Capacitor)
+* [demo circuit](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator/lt-spice-demo-circuits.html)
 
 [BSIM](http://bsim.berkeley.edu/)
 * [BSIM-SOI](http://bsim.berkeley.edu/models/bsimsoi/)

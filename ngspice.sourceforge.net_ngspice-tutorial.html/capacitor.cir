@@ -1,0 +1,12 @@
+* http://www.learningaboutelectronics.com/Articles/How-long-does-it-take-to-charge-a-capacitor
+.title capacitor charge time
+.options TEMP=27 TNOM=27
+
+V1 a 0    dc 0 PULSE (0 9 1u 1u 1u 1 1)
+C1 b 0 1000u
+
+R1 a b    3k
+
+.tran 1s 100s
+
+.end
