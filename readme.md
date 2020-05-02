@@ -53,6 +53,15 @@ popd
 * [books](http://ngspice.sourceforge.net/books.html)
 * [LTwiki](http://ltwiki.org/index.php?title=C_Capacitor)
 * [demo circuit](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator/lt-spice-demo-circuits.html)
+* model library
+  * [diodes.com](https://www.diodes.com/design/tools/spice-models/)
+
+Germanium diode
+* [all about circuits](https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/spice-models/)
+* [1N34A](https://www.alldatasheet.com/view.jsp?Searchword=1N34A)
+  * [eBay](https://www.ebay.com/sch/i.html?_nkw=1n34a)
+  * [code](https://electronics.stackexchange.com/q/242660#comment530741_242660)
+  * [jameco](https://www.jameco.com/webapp/wcs/stores/servlet/Product_10001_10001_35941_-1)
 
 [BSIM](http://bsim.berkeley.edu/)
 * [BSIM-SOI](http://bsim.berkeley.edu/models/bsimsoi/)
