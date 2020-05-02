@@ -2,20 +2,19 @@
 
 .title V-I Characteristics of PN Junction Diode
 
-V1 a 0 dc 0 PULSE (-10v 10v 10s 100s)
+V1 a 0 dc 0 PULSE( 0v 1v 0s 100s )
 
-R1 a b  1
-.save all @r1[i]
+D1 a 0 Silicon area=1.0 
+* .model Silicon D( IS=100uA RS=333 BV=100V VJ=100v PHP=100v )
+.model Silicon D( IS=100uA EG=1.11 BV=0.1V VJ=0.2v PHP=0.3v )
+.save all @d1[id]
 
-D1 b 0 myDiode
-.model myDiode D(IS=0.1A JSW=0.2A IBV=0.3A BV=8v)
-
-.tran 10ms 200s
+.tran 10ms 100s
 
 .control
   run
-  plot @r1[i] vs a
-  plot @r1[i] vs a xlimit -250mV 0 ylimit -110mA 0
+  plot @d1[id] vs a
+  * plot @d1[id] vs a xlimit -250mV 0 ylimit -110mA 0
 .endc
 
 .end
