@@ -2,7 +2,6 @@
 
 .title V-I Characteristics of PN Junction Diode
 
-V1   a 0 dc 0 PULSE( -41v 1v 0 42s )
 V1   a 0 dc 0 PULSE( -40001mv 701mv 0 40701ms )
 
 .model Silicon D(EG=1.11 BV=40)
@@ -16,9 +15,9 @@ D_Si a 0 Silicon area=1.0
   run
   * plot a nointerp
   * plot @D_Si[id] nointerp
-  plot @D_Si[id] vs a nointerp
-  plot @D_Si[id] vs a xlimit -40001mv -39900mv ylimit -1.5mA  0mA nointerp
-  plot @D_Si[id] vs a xlimit    600mv    701mv ylimit    0mA 10mA nointerp
+  plot @D_Si[id] vs a pointplot nointerp
+  plot @D_Si[id] vs a xlimit -40001mv -39900mv ylimit -1.5mA  0mA pointplot nointerp
+  plot @D_Si[id] vs a xlimit    600mv    701mv ylimit    0mA 10mA pointplot nointerp
 .endc
 
 .end
