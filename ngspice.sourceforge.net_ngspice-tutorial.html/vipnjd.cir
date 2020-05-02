@@ -8,13 +8,14 @@ R1 a b  1
 .save all @r1[i]
 
 D1 b 0 myDiode
-.model myDiode D(IS=0.25A JSW=0.25A IBV=0.25A BV=8v)
+.model myDiode D(IS=0.1A JSW=0.2A IBV=0.3A BV=8v)
 
-.tran 1s 200s
+.tran 10ms 200s
 
 .control
   run
   plot @r1[i] vs a
+  plot @r1[i] vs a xlimit -250mV 0 ylimit -110mA 0
 .endc
 
 .end
