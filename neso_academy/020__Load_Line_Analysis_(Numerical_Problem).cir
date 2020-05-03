@@ -1,18 +1,23 @@
 .title Load Line Analysis (Numerical Problem)
 .options TEMP=27 TNOM=27
 
-V1 a 0 10v
-R1 a b 1kOhm
-B1 b 0 I=v(b)/v(c)
-Vx c 0 dc 1e5v
-
-V2   m 0 dc 0v
-D_Si m 0 Silicon area=1.0
 .model Silicon D(EG=1.11 BV=40)
-
 .save all
+
+V1 a1  0 10v
+R1 a1 b1 1kOhm
+B1 b1  0 I=v(b1)/v(c1)
+Vx c1  0 dc 1e5v
 .save @R1[i]
-.save @D_Si[id]
+
+V2 a2 0 dc 0v
+D2 a2 0 Silicon area=1.0
+.save @D2[id]
+
+V3 a3  0 10v
+R3 a3 b3 1kOhm
+D3 b3  0 Silicon area=1.0
+.save @D3[id]
 
 .control
   *
@@ -22,10 +27,25 @@ D_Si m 0 Silicon area=1.0
   dc Vx   1v  111v  100mv
   dc V2 710mV 720mV 100uV
   *
-  * plot dc1.@R1[i]    vs dc1.b ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
-  * plot dc2.@D_Si[id] vs dc2.m ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
-  plot dc1.@R1[i] vs dc1.b dc2.@D_Si[id] vs dc2.m ylimit 0mA 11mA xlimit   0v   15v  pointplot nointerp
-  plot dc3.@R1[i] vs dc3.b dc4.@D_Si[id] vs dc4.m ylimit 9mA 10mA xlimit 700mV 800mV pointplot nointerp
+  * plot dc1.@R1[i]  vs dc1.b1 ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
+  * plot dc2.@D2[id] vs dc2.a2 ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
+  plot dc1.@R1[i] vs dc1.b1 dc2.@D2[id] vs dc2.a2 ylimit 0mA 11mA xlimit   0v   15v
+  plot dc3.@R1[i] vs dc3.b1 dc4.@D2[id] vs dc4.a2 ylimit 9mA 10mA xlimit 700mV 800mV pointplot nointerp
+  *
+  op
+  echo
+  echo
+  echo
+  echo
+  echo
+  print @D3[id] b3
+  echo
+  echo
+  echo
+  echo
+  echo
+  echo
+  *
 .endc
 
 .end
