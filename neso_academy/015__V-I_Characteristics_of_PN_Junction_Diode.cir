@@ -6,14 +6,14 @@ V1   a 0 dc 0
 D_Si a 0 Silicon area=1.0
 
 .model Silicon D(EG=1.11 BV=40)
-.dc V1 -40001mv 701mv 10mV
+.dc V1 -41v 800mv 3mV
 .save all @D_Si[id]
 
 .control
   run
-  plot @D_Si[id] vs a pointplot nointerp
-  plot @D_Si[id] vs a xlimit -40001mv -39900mv ylimit -1.5mA  0mA pointplot nointerp
-  plot @D_Si[id] vs a xlimit    600mv    701mv ylimit    0mA 10mA pointplot nointerp
+  plot @D_Si[id] vs a ylimit -20mA 20mA
+  plot @D_Si[id] vs a xlimit -40.1 -39.9v ylimit -1.5mA  0mA pointplot nointerp
+  plot @D_Si[id] vs a xlimit 650mv   750mv ylimit    0mA 20mA pointplot nointerp
 .endc
 
 .end
