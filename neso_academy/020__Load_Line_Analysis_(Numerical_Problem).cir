@@ -4,9 +4,9 @@
 V1 a 0 10v
 R1 a b 1kOhm
 B1 b 0 I=v(b)/v(c)
-Vx c 0 dc 0
+Vx c 0 dc 1e5v
 
-V2   m 0 dc 0
+V2   m 0 dc 0v
 D_Si m 0 Silicon area=1.0
 .model Silicon D(EG=1.11 BV=40)
 
@@ -15,11 +15,11 @@ D_Si m 0 Silicon area=1.0
 .save @D_Si[id]
 
 .control
-  dc Vx   1v 1e5v 100v V2 0v 0v 1v
-  dc Vx 1e5v 1e5v   1v V2 0v 1v 10mV
+  dc Vx 1v 1e5v 100v
+  dc V2 0v   1v 10mV
+  * plot dc1.@R1[i]    vs dc1.b ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
+  * plot dc2.@D_Si[id] vs dc2.m ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
   plot dc1.@R1[i] vs dc1.b dc2.@D_Si[id] vs dc2.m ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
-  * plot @R1[i]    vs b ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
-  * plot @D_Si[id] vs m ylimit 0mA 11mA xlimit 0v 15v pointplot nointerp
 .endc
 
 .end
