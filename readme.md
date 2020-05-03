@@ -46,7 +46,7 @@ popd
 
 ###### References
 
-[ngspice](http://ngspice.sourceforge.net/)
+[Ngspice](http://ngspice.sourceforge.net/)
 * [doc](http://ngspice.sourceforge.net/docs.html)
 * [doc (online)](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml)
 * [doc (external) (BSIM)](http://ngspice.sourceforge.net/literature.html)
@@ -56,8 +56,10 @@ popd
 * model library
   * [diodes.com](https://www.diodes.com/design/tools/spice-models/)
 
-Germanium diode
+Diode
 * [all about circuits](https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/spice-models/)
+* [wikipedia category](https://en.wikipedia.org/wiki/Category:Diodes)
+* [1N400X](https://en.wikipedia.org/wiki/1N400x_general-purpose_diodes)
 * [1N34A](https://www.alldatasheet.com/view.jsp?Searchword=1N34A)
   * [eBay](https://www.ebay.com/sch/i.html?_nkw=1n34a)
   * [code](https://electronics.stackexchange.com/q/242660#comment530741_242660)
@@ -66,10 +68,14 @@ Germanium diode
 [BSIM](http://bsim.berkeley.edu/)
 * [BSIM-SOI](http://bsim.berkeley.edu/models/bsimsoi/)
 
-analog
+Analog
 * [Neso Academy](https://www.youtube.com/playlist?list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS)
 * [Caltech](https://www.youtube.com/playlist?list=PLc7Gz02Znph-c2-ssFpRrzYwbzplXfXUT)
 * [GATE ACADEMY](https://www.youtube.com/playlist?list=PLgzsL8klq6DLhLOLOgEHsH4Li7zJhw6HT)
+
+Mixed
+* [F-Si](https://wiki.f-si.org/images/4/42/Ngspice_FSiC2019.pdf#page=4)
+* [xspice pll](https://sourceforge.net/p/ngspice/ngspice/ci/master/tree/examples/xspice/pll/)
 
 [pcb-rnd](http://repo.hu/projects/pcb-rnd/)
 * [forum](https://www.eevblog.com/forum/geda/pcb-rnd/)
