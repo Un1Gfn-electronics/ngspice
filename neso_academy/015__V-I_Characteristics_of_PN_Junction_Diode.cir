@@ -16,8 +16,8 @@ D_Si a 0 Silicon area=1.0
   plot   @D_Si[id] vs a xlimit -40.1v -39.9v ylimit -1.5mA      0mA pointplot
   plot   @D_Si[id] vs a xlimit  650mv  750mv ylimit    0mA     20mA pointplot
   *
+  plot a/@D_Si[id] vs a ylog
   plot a/@D_Si[id] vs a xlimit     0v     1v ylimit   0ohm 1000Gohm pointplot
-  * plot a/@D_Si[id] vs a
   plot a/@D_Si[id] vs a xlimit  600mv  800mv ylimit      0       5k pointplot
   plot a/@D_Si[id] vs a xlimit  600mv  800mv ylimit      0      150 pointplot
   *
