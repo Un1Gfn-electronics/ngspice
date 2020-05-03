@@ -1,0 +1,29 @@
+* https://forum.kicad.info/t/spice-resistor-sweep/15848/2
+
+.title Voltage controlled resistor
+
+V1 in 0 10
+R2 out 0 10
+* either constant R1 or variable X1
+*R1 out in 10
+X1 out in contr vres
+V2 contr 0 1
+
+* either resistance sweep or voltage sweep for X1
+*.dc R1 1 10 1
+.dc V2 1 10 1
+
+* voltage controlled resistor subcircuit
+* the voltage at node c has to be > 0
+.subckt vres r1 r2 c
+BRes r1 r2 I = v(r1, r2) / v(c)
+.ends
+
+.save all @R2[i]
+
+.control
+  run
+  plot @R2[i] vs in-out
+.endc
+
+.end
