@@ -1,18 +1,15 @@
 .title Load Line Analysis (Numerical Problem)
 .options TEMP=27 TNOM=27
 
-V1 a 0   10v
-R1 a b   1kOhm
-X1 b 0 c VCR
-Vx c 0   dc 0
+V1 a 0 10v
+R1 a b 1kOhm
+
+B1 b 0 I=v(b)/v(c)
+Vx c 0 dc 0
 
 .save all @R1[i]
 
 .dc Vx 1v 1e5v 1v
-
-.subckt VCR H L Ctrl
-BRes L H I = v(L, H) / v(Ctrl)
-.ends
 
 .control
   run
