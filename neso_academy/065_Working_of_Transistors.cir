@@ -1,0 +1,15 @@
+.title Working of Transistors
+
+.model NPN0 NPN()
+
+VC C 0 0 AC 1 SIN(0 1 1) 
+VE E 0 0 AC 1 SIN(0 1 2)
+
+* Q1 C 0 E NPN0
+
+.control
+  tran 1ms 1s 0s
+  plot C E
+.endc
+
+.end
