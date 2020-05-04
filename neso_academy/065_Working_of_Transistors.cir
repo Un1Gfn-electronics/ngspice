@@ -5,15 +5,15 @@
 
 V0 z 0 0v 
 
-VC C 0 DC 0 PULSE(-1v 1v 0s 1s 1s  5s 12s)
-VE E 0 DC 0 PULSE(-1v 1v 0s 1s 1s 11s 24s)
+VC C 0 DC 0 PULSE(-1v +1v 0s 1s 1s  5s 12s)
+VE E 0 DC 0 PULSE(+1v -1v 0s 1s 1s 11s 24s)
 .save all @VC[i] @VE[i]
 
 Q1 C 0 E NPN0
 
 .control
   tran 100ms 25s
-  plot z+2v C+2v z-2v E-2v xlimit 0s 25s nogrid ylimit -3v +3v
+  plot z+2v E+2v z-2v C-2v xlimit 0s 25s nogrid ylimit -3v +3v
   plot @VC[i] @VE[i] xlimit 0s 25s
 .endc
 

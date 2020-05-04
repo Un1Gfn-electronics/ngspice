@@ -81,6 +81,11 @@ Mixed
 * [forum](https://www.eevblog.com/forum/geda/pcb-rnd/)
 * [bridges](http://repo.hu/projects/pcb-rnd/user/09_appendix/bridges.svg)
 
+[bash ignoreeof](https://wiki.archlinux.org/index.php/Bash#Shell_exits_even_if_ignoreeof_set)
+```bash
+set -o ignoreeof
+```
+
 ###### Hidden
 
 <details><summary>&nbsp;</summary>
