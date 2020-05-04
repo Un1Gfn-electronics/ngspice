@@ -26,6 +26,13 @@ Q1 CC BB EE NPN0
   tran 28ms 17s 14s
   plot @RB[i] @RC[i] @RE[i]
   plot @RB[i]
+  echo
+  let k = length(time) - 1
+  let alpha = @RC[i][k]/(0-@RE[i][k])
+  print alpha
+  echo
+  print 1-alpha
+  echo
   *
 .endc
 
