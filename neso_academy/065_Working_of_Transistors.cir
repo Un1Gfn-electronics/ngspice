@@ -2,14 +2,16 @@
 
 .model NPN0 NPN()
 
-VC C 0 0 AC 1 SIN(0 1 1) 
-VE E 0 0 AC 1 SIN(0 1 2)
+VC C 0 DC 0 PULSE(-1v 1v 0s 1s 1s  5s 12s)
+VE E 0 DC 0 PULSE(-1v 1v 0s 1s 1s 11s 24s)
+.save all @VC[i] @VE[i]
 
-* Q1 C 0 E NPN0
+Q1 C 0 E NPN0
 
 .control
-  tran 1ms 1s 0s
-  plot C E
+  tran 100ms 25s
+  plot C+20mV E xlimit 0ms 25s
+  * plot @VC[i] @VE[i]
 .endc
 
 .end
