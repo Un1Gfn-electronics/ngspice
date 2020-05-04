@@ -1,60 +1,16 @@
-###### Files
 
-|Source|Files|
-|-|-|
-|http://ngspice.sourceforge.net/ngspice-tutorial.html|01_sf_*|
-
-###### Experiments
-
-Cleanup
-```bash
-rm -r ngspice-31/
-tar xf ngspice-31.tar.gz
-```
-
-http://ngspice.sourceforge.net/ngspice-tutorial.html
-```
-cd /home/darren/ngspice/ngspice.sourceforge.net_ngspice-tutorial.html
-ngspice vdiv.cir
-ngspice capacitor.cir
-```
-
-Inverter
-```
-pushd /home/darren/ngspice/ngspice-31/examples/soi
-ngspice inv_tr.sp
-...
-quit
-popd
-```
-
-ngspice x gtkwave
-<sup>[1](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#magicparlabel-19379)</sup>
-<sup>[2](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#subsec_Edisplay__1)</sup>
-<sup>[3](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#subsec_Running_example_C3)</sup>
-```
-pushd /home/darren/ngspice/ngspice-31/examples/xspice/
-ngspice xspice_c3.cir
-run
-plot filt_in lpf_out
-eprvcd filt_in >/tmp/ngspice.vcd
-...
-quit
-gtkwave /tmp/ngspice.vcd
-popd
-```
-
-###### References
-
-[Ngspice](http://ngspice.sourceforge.net/)
+[ngspice](http://ngspice.sourceforge.net/)
 * [doc](http://ngspice.sourceforge.net/docs.html)
-* [doc (online)](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml)
-* [doc (external) (BSIM)](http://ngspice.sourceforge.net/literature.html)
+* [doc (xhtml)](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml)
+* [doc (external)](http://ngspice.sourceforge.net/literature.html)
 * [books](http://ngspice.sourceforge.net/books.html)
 * [LTwiki](http://ltwiki.org/index.php?title=C_Capacitor)
 * [demo circuit](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator/lt-spice-demo-circuits.html)
-* model library
-  * [diodes.com](https://www.diodes.com/design/tools/spice-models/)
+
+spice model library
+* https://www.diodes.com/design/tools/spice-models/
+* https://www.onsemi.com/
+* https://www.analog.com/
 
 Diode
 * [all about circuits](https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/spice-models/)
@@ -89,6 +45,31 @@ set -o ignoreeof
 ###### Hidden
 
 <details><summary>&nbsp;</summary>
+
+ngspice x gtkwave
+<sup>[1](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#magicparlabel-19379)</sup>
+<sup>[2](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#subsec_Edisplay__1)</sup>
+<sup>[3](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#subsec_Running_example_C3)</sup>
+```
+pushd /home/darren/ngspice/ngspice-31/examples/xspice/
+ngspice xspice_c3.cir
+run
+plot filt_in lpf_out
+eprvcd filt_in >/tmp/ngspice.vcd
+...
+quit
+gtkwave /tmp/ngspice.vcd
+popd
+```
+
+inverter w/ BSIM
+```
+pushd /home/darren/ngspice/ngspice-31/examples/soi
+ngspice inv_tr.sp
+...
+quit
+popd
+```
 
 ```bash
 pacman -Syu kicad kicad-library
