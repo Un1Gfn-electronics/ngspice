@@ -1,0 +1,25 @@
+.title Working of Transistors
+.options TEMP=27 TNOM=27 gridstyle=nogrid
+
+.model NPN0 NPN()
+
+V0 B 0 0v
+VC C B DC 0 PULSE(-1v +1v 0s 1s 1s  5s 12s)
+VE E B DC 0 PULSE(-1v +1v 0s 1s 1s 11s 24s)
+
+RB BB B 1ohm
+RC CC C 1ohm
+RE EE E 1ohm
+
+Q1 CC BB EE NPN0
+
+.save all @RC[i] @RB[i] @RE[i]
+
+.control
+  tran 100ms 25s
+  plot E-B+2 0+2 C-B-2 0-2 xlimit 0s 25s
+  * plot C-E+2 0+2 B-E-2 0-2 xlimit 0s 25s
+  plot @RC[i] @RB[i] @RE[i] xlimit 0s 25s
+.endc
+
+.end
