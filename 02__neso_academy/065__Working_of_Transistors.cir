@@ -1,3 +1,5 @@
+* Note page 17
+
 .title Working of Transistors
 .options TEMP=27 TNOM=27 gridstyle=nogrid
 
@@ -7,9 +9,9 @@ V0 B 0 0v
 VC C B DC 0 PULSE(-1v +1v 0s 1s 1s  5s 12s)
 VE E B DC 0 PULSE(-1v +1v 0s 1s 1s 11s 24s)
 
-RB B BB 1ohm
-RC C CC 1ohm
-RE E EE 1ohm
+RB B BB 1u
+RC C CC 1u
+RE E EE 1u
 
 Q1 CC BB EE NPN0
 
@@ -17,11 +19,11 @@ Q1 CC BB EE NPN0
 
 .control
   *
-  tran 100ms 25s
+  tran 79ms 25s
   plot E-B+2 0+2 C-B-2 0-2 xlimit 0s 25s
   * plot @RB[i] @RC[i] @RE[i] xlimit 0s 25s
   *
-  tran 100ms 18s 13s
+  tran 28ms 17s 14s
   plot @RB[i] @RC[i] @RE[i]
   plot @RB[i]
   *
