@@ -3,13 +3,14 @@
 
 .model NPN0 NPN()
 
-V0 z 0 0v 
+V0 z 0 0v
 
+VB B 0 110mV
 VC C 0 DC 0 PULSE(-1v +1v 0s 1s 1s  5s 12s)
 VE E 0 DC 0 PULSE(+1v -1v 0s 1s 1s 11s 24s)
 .save all @VC[i] @VE[i]
 
-Q1 C 0 E NPN0
+Q1 C B E NPN0
 
 .control
   tran 100ms 25s
