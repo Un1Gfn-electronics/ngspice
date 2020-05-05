@@ -1,9 +1,13 @@
 * https://wiki.analog.com/university/courses/electronics/electronics-lab-27
-* ngspice -b inv.cir
+* ngspice -nb inv.cir
 .title TTL Inverter
+
+.include 2N3904.SP3
 
 * Input current steering stage
 .SUBCKT ICSS   Vcc Vin             Q1C
+  R1 Vcc o       100k
+  Q1 Q1C o Vin 2N3904
 .ENDS
 
 
