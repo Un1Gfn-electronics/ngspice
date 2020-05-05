@@ -1,46 +1,34 @@
-
-* op
-* print a b y
-
-*.ic v(s)=5v v(bb)=4999mV v(a)=0 v(aa)=3mV v(yy)=2mV v(ss)=1mV
-* option trtol=7
-* set xtrtol=2 trtol=8
-* set GMIN=1.0e-3
-
-* Va a 0 dc 0 PWL(0s 0v 1ns 5v)
-* Va a 0 dc 0 SIN(2.5 2.5 0.5 0)
-* Va a 0 5v
-
-
+* ngspice -b SN74LS00_sim.cir
 
 .title SN74LS00_sim
 .include SN74LS00.cir
 
-V0 s 0 5v
-Va a 0 dc 0 PULSE(
-+ 1mv 5v 0
-+ 1ms 1ms 1s 2002ms
-+ )
+Va a 0 0v
+Vb b 0 0v
 
-Rs ss s 5k
-Rb bb s 1m
-Ra aa a 0
+Vs s_ 0   5v
+Rs s_ s   5k
+* Ry y  0 900k
 
-Vb b 0 5v
-
-XSN74LS00 yy aa bb ss 0 SN74LS00
-
-Ry yy 0 10k
+XSN74LS00 y a b s 0 SN74LS00
 
 .control
-  OPTION ABSTOL=1e-15.
-  OPTION GMIN=1.0e-12.
-  OPTION ITL1=1e5
-  OPTION RSHUNT=1e12
-  OPTION RELTOL=1e-5
-  tran 1ms 999ms
-  print time
-  plot a
-  plot yy
+  * set GMIN=1.0e-12
+  * set GMINSTEPS=0
+  set width=11 numdgt=3
+  foreach aa 0 5v
+    foreach bb 0 5v
+      alter Va=$aa
+      alter Vb=$bb
+      op
+      echo
+      echo
+      echo
+      print a b y
+      echo
+      echo
+      echo
+      shell read -r
+    end
+  end
 .endc
-
