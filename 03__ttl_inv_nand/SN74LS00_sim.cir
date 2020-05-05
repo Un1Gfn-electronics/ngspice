@@ -1,13 +1,30 @@
 
+* op
+* print a b y
+
+*.ic v(s)=5v v(bb)=4999mV v(a)=0 v(aa)=3mV v(yy)=2mV v(ss)=1mV
+* option trtol=7
+* set xtrtol=2 trtol=8
+* set GMIN=1.0e-3
+
+* Va a 0 dc 0 PWL(0s 0v 1ns 5v)
+* Va a 0 dc 0 SIN(2.5 2.5 0.5 0)
+* Va a 0 5v
+
+
+
 .title SN74LS00_sim
 .include SN74LS00.cir
 
 V0 s 0 5v
-Va a 0 dc 0 PWL(0s 0v 1ns 5v)
+Va a 0 dc 0 PULSE(
++ 1mv 5v 0
++ 1ms 1ms 1s 2002ms
++ )
 
 Rs ss s 5k
 Rb bb s 1m
-Ra aa a 1m
+Ra aa a 0
 
 Vb b 0 5v
 
@@ -16,13 +33,14 @@ XSN74LS00 yy aa bb ss 0 SN74LS00
 Ry yy 0 10k
 
 .control
-  * option trtol=7
-  * plot a b
-  * set xtrtol=2 trtol=8
-  * set GMIN=1.0e-30
-  tran 7us 5ms
-  plot a b
-  * plot y
-  * op
-  * print a b y
+  OPTION ABSTOL=1e-15.
+  OPTION GMIN=1.0e-12.
+  OPTION ITL1=1e5
+  OPTION RSHUNT=1e12
+  OPTION RELTOL=1e-5
+  tran 1ms 999ms
+  print time
+  plot a
+  plot yy
 .endc
+
