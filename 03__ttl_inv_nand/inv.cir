@@ -32,25 +32,23 @@
 
 Vx   x 0 0v
 VC Vcc 0 6v
-VG GND 0 0v
 
-XUicss         Vcc x               Q1C       ICSS
-XUpss          Vcc GND Q1C         Vo1 Vo2   PSS
-XUos           Vcc GND Vo1 Vo2     y         OS
+XUicss         Vcc x             Q1C       ICSS
+XUpss          Vcc 0 Q1C         Vo1 Vo2   PSS
+XUos           Vcc 0 Vo1 Vo2     y         OS
 
 .control
   foreach xx 0 6v
-      alter Vx=$xx
-      op
-      echo
-      echo
-      echo
-      * print x y
-      echo
-      echo
-      echo
-      shell read -r
-    end
+    alter Vx=$xx
+    op
+    echo
+    echo
+    echo
+    print x y
+    echo
+    echo
+    echo
+    shell read -r
   end
 .endc
 
