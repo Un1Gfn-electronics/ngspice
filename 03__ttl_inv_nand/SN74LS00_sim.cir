@@ -2,26 +2,27 @@
 .title SN74LS00_sim
 .include SN74LS00.cir
 
-V0 vc   0    5v
-Rs vcc vc 5500ohm
+V0 s 0 5v
+Va a 0 dc 0 PWL(0s 0v 1ns 5v)
 
-Va a 0 5v
+Rs ss s 5k
+Rb bb s 1m
+Ra aa a 1m
+
 Vb b 0 5v
 
-* Va a 0 5v
-* Vb b 0 0v
+XSN74LS00 yy aa bb ss 0 SN74LS00
 
-* Va a 0 0v
-* Vb b 0 5v
-
-* Va a 0 0v
-* Vb b 0 0v
-
-XSN74LS00 y a b vcc 0 SN74LS00
+Ry yy 0 10k
 
 .control
   * option trtol=7
-  op
-  print a b y
-  * plot a b pointplot
+  * plot a b
+  * set xtrtol=2 trtol=8
+  * set GMIN=1.0e-30
+  tran 7us 5ms
+  plot a b
+  * plot y
+  * op
+  * print a b y
 .endc
