@@ -1,0 +1,14 @@
+
+
+.title SN74LS00_sim
+.include SN74LS00.cir
+
+Va a 0 dc 0 ac 0 PULSE(0v +5v 0s 1s 1s  5s 12s)
+Vb b 0 dc 0 ac 0 PULSE(0v +5v 0s 1s 1s 11s 24s)
+
+XSN74LS00 y a b Vcc GND SN74LS00
+
+.control
+  tran 1s 100s
+  * plot a b
+.endc
