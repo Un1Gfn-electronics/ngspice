@@ -1,4 +1,3 @@
-
 [ngspice](http://ngspice.sourceforge.net/)
 * [doc](http://ngspice.sourceforge.net/docs.html)
 * [doc (xhtml)](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml)
@@ -11,6 +10,7 @@ spice model library
 * https://www.diodes.com/design/tools/spice-models/
 * https://www.onsemi.com/
 * https://www.analog.com/
+* http://espice.ugr.es/espice/src/modelos_subckt/
 
 Diode
 * [all about circuits](https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/spice-models/)
@@ -36,6 +36,8 @@ Mixed
 [pcb-rnd](http://repo.hu/projects/pcb-rnd/)
 * [forum](https://www.eevblog.com/forum/geda/pcb-rnd/)
 * [bridges](http://repo.hu/projects/pcb-rnd/user/09_appendix/bridges.svg)
+
+[lepton-eda](https://github.com/lepton-eda/lepton-eda)
 
 [bash ignoreeof](https://wiki.archlinux.org/index.php/Bash#Shell_exits_even_if_ignoreeof_set)
 ```bash
