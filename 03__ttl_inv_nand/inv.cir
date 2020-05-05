@@ -10,9 +10,11 @@
   Q1 Q1C o Vin 2N3904
 .ENDS
 
-
 * Phase splitting stage
 .SUBCKT PSS    Vcc GND Vin         Vo1 Vo2
+  R2 Vcc Vo1     2200
+  R3 GND Vo2     470
+  Q2 Vo1 Vin Vo2 2N3904
 .ENDS
 
 * Output Stage
