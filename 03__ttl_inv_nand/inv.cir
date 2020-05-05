@@ -4,6 +4,7 @@
 
 .include 2N3904.SP3
 .include SSM2212.cir
+.include 1N914.mod
 
 * Input current steering stage
 .SUBCKT ICSS   Vcc Vin             Q1C
@@ -21,11 +22,11 @@
 * Output Stage
 .SUBCKT OS     Vcc GND Vi1 Vi2     Vout
   *
-  R4 Vcc Q4C  100
-  D1 Q4E Vout 1N914
+  R4   Vcc Q4C                      100
+  D1   Q4E Vout                     FDLL914B
   *
-  *          Q4C Q4B Q4E   Q3E Q3B Q3C
-  Xssm2212   Q4C Vi1 Q4E   GND Vi2 Vout   SSM2212
+  *    Q4C Q4B Q4E   Q3E Q3B Q3C
+  Xssm Q4C Vi1 Q4E   GND Vi2 Vout   SSM2212
   *
 .ENDS
 
@@ -40,7 +41,7 @@ XUos           Vcc GND Vo1 Vo2     y         OS
 .control
   foreach xx 0 6v
       alter Vx=$xx
-      * op
+      op
       echo
       echo
       echo
@@ -52,3 +53,5 @@ XUos           Vcc GND Vo1 Vo2     y         OS
     end
   end
 .endc
+
+.end
