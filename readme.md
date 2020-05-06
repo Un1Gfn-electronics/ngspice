@@ -1,43 +1,48 @@
+
+mixed
+* [convert VCD to d_source](https://sourceforge.net/p/ngspice/discussion/ngspice-tips/thread/635bb14a/)
+* [F-Si](https://wiki.f-si.org/images/4/42/Ngspice_FSiC2019.pdf#page=4)
+* [ISOTEL](https://www.isotel.eu/index.html) [SPICE x Verilog x C/C++](https://www.isotel.eu/mixedsim/index.html) ([example](https://sourceforge.net/p/ngspice/discussion/133842/thread/bfb9dad0/#96e7))
+* xspice
+  * [pll](https://sourceforge.net/p/ngspice/ngspice/ci/master/tree/examples/xspice/pll/)
+  * [howto](http://ngspice.sourceforge.net/xspicehowto.html)
+  * [usage](http://ngspice.sourceforge.net/xspiceusage.html)
+  * [MCUSim library](https://trac.mcusim.org/) ([GitHub](https://www.avrfreaks.net/forum/mcusim-open-source-simulator-microcontrollers))
+
 [ngspice](http://ngspice.sourceforge.net/)
+* [tutorial](http://ngspice.sourceforge.net/tutorials.html)
 * [doc](http://ngspice.sourceforge.net/docs.html)
 * [doc (xhtml)](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml)
 * [doc (external)](http://ngspice.sourceforge.net/literature.html)
 * [books](http://ngspice.sourceforge.net/books.html)
 * [LTwiki](http://ltwiki.org/index.php?title=C_Capacitor)
 * [demo circuit](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator/lt-spice-demo-circuits.html)
+* [working with other tools](http://ngspice.sourceforge.net/resources.html)
 
-spice model library
+spice models
 * https://www.diodes.com/design/tools/spice-models/
 * https://www.onsemi.com/
 * https://www.analog.com/
 * http://espice.ugr.es/espice/src/modelos_subckt/
+* [BSIM](http://bsim.berkeley.edu/) [BSIM-SOI](http://bsim.berkeley.edu/models/bsimsoi/)
+* Diode
+  * [all about circuits](https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/spice-models/)
+  * [wikipedia category](https://en.wikipedia.org/wiki/Category:Diodes)
+  * [1N400X](https://en.wikipedia.org/wiki/1N400x_general-purpose_diodes)
+  * [1N34A](https://www.alldatasheet.com/view.jsp?Searchword=1N34A)
+    * [eBay](https://www.ebay.com/sch/i.html?_nkw=1n34a)
+    * [code](https://electronics.stackexchange.com/q/242660#comment530741_242660)
+    * [jameco](https://www.jameco.com/webapp/wcs/stores/servlet/Product_10001_10001_35941_-1)
 
-Diode
-* [all about circuits](https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/spice-models/)
-* [wikipedia category](https://en.wikipedia.org/wiki/Category:Diodes)
-* [1N400X](https://en.wikipedia.org/wiki/1N400x_general-purpose_diodes)
-* [1N34A](https://www.alldatasheet.com/view.jsp?Searchword=1N34A)
-  * [eBay](https://www.ebay.com/sch/i.html?_nkw=1n34a)
-  * [code](https://electronics.stackexchange.com/q/242660#comment530741_242660)
-  * [jameco](https://www.jameco.com/webapp/wcs/stores/servlet/Product_10001_10001_35941_-1)
-
-[BSIM](http://bsim.berkeley.edu/)
-* [BSIM-SOI](http://bsim.berkeley.edu/models/bsimsoi/)
-
-Analog
+analog toturial
 * [Neso Academy](https://www.youtube.com/playlist?list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS)
 * [Caltech](https://www.youtube.com/playlist?list=PLc7Gz02Znph-c2-ssFpRrzYwbzplXfXUT)
 * [GATE ACADEMY](https://www.youtube.com/playlist?list=PLgzsL8klq6DLhLOLOgEHsH4Li7zJhw6HT)
 
-Mixed
-* [F-Si](https://wiki.f-si.org/images/4/42/Ngspice_FSiC2019.pdf#page=4)
-* [xspice pll](https://sourceforge.net/p/ngspice/ngspice/ci/master/tree/examples/xspice/pll/)
-
-[pcb-rnd](http://repo.hu/projects/pcb-rnd/)
-* [forum](https://www.eevblog.com/forum/geda/pcb-rnd/)
-* [bridges](http://repo.hu/projects/pcb-rnd/user/09_appendix/bridges.svg)
-
-[lepton-eda](https://github.com/lepton-eda/lepton-eda)
+[lepton-eda](https://github.com/lepton-eda/lepton-eda) and [pcb-rnd](http://repo.hu/projects/pcb-rnd/)
+* [about pcb-rnd](https://www.eevblog.com/forum/geda/pcb-rnd/)
+* [lepton vs pcb-rnd](https://www.eevblog.com/forum/geda/the-current-state-of-gedalepton-eda-and-what-this-means-for-pcb-rnd/)
+* [working with other tools](http://repo.hu/projects/pcb-rnd/user/09_appendix/bridges.svg)
 
 [bash ignoreeof](https://wiki.archlinux.org/index.php/Bash#Shell_exits_even_if_ignoreeof_set)
 ```bash
