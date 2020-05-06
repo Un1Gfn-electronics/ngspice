@@ -1,34 +1,16 @@
-* ngspice -b SN74LS00_sim.cir
-
 .title SN74LS00_sim
 .include SN74LS00.cir
 
-Va a 0 0v
-Vb b 0 0v
+Vs s 0 5v
+Va a 0 5v
+Vb b 0 dc 0 PULSE(0v 5v 0s 1ms 1ms 1s 2002ms)
 
-Vs s_ 0   5v
-Rs s_ s   5k
-* Ry y  0 900k
+Rs s_ s  5k
+Ry y  0 20k
 
-XSN74LS00 y a b s 0 SN74LS00
+XSN74LS00 y a b s_ 0 SN74LS00
 
 .control
-  * set GMIN=1.0e-12
-  * set GMINSTEPS=0
-  set width=11 numdgt=3
-  foreach aa 0 5v
-    foreach bb 0 5v
-      alter Va=$aa
-      alter Vb=$bb
-      op
-      echo
-      echo
-      echo
-      print a b y
-      echo
-      echo
-      echo
-      shell read -r
-    end
-  end
+  tran 1ms 8s
+  plot a b y
 .endc
