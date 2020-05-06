@@ -3,12 +3,11 @@
 
 Vs s 0 5v
 Va a 0 5v
-Vb b 0 dc 0 PULSE(0v 5v 0s 10e-20s 10e-20s 1s 2s)
+Vb b 0 dc 0 PULSE(0v 5v 0s 1ms 1ms 1s 2002ms)
 
-Rs s_ s 5500
-Ry y  0 40k
+Ry y  0 20k
 
-XSN74LS00 y a b s_ 0 SN74LS00
+XSN74LS00 y a b s 0 SN74LS00
 
 .control
   tran 1ms 8s
