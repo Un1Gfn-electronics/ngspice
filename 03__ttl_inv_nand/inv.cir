@@ -31,7 +31,7 @@
   *
 .ENDS
 
-Vx   x 0 0v dc 0 PWL(0s 0v 6e-8 6v)
+Vx   x 0 0v dc 0 PWL(0s 0v 1e-8s 6v)
 VC Vcc 0 6v
 
 XUicss         Vcc x             Q1C       ICSS
@@ -39,8 +39,9 @@ XUpss          Vcc 0 Q1C         Vo1 Vo2   PSS
 XUos           Vcc 0 Vo1 Vo2     y         OS
 
 .control
-  tran 1ns 20e-8
-  plot x y pointplot
+  tran 1e-10 50e-8
+  * plot x y pointplot
+  plot x y
 .endc
 
 .end
