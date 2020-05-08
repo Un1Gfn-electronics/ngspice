@@ -7,6 +7,10 @@
 .include SSM2212.cir
 .include 1N914.mod
 
+* https://sourceforge.net/p/ngspice/discussion/133842/thread/80d38e4d/#897d
+.param   HIGH=6
+.csparam HIGH={HIGH}
+
 * Input current steering stage
 .SUBCKT ICSS   Vcc Vin             Q1C
   R1 Vcc o       100k
@@ -31,9 +35,9 @@
   *
 .ENDS
 
-* Vx   x 0 0v dc 0 PWL(0s 0v 1e-8s 6v)
-Vx   x 0 0v dc 0 PULSE(0v 6v 0 1e-8 1e-8 150e-8 302e-8)
-VC Vcc 0 6v
+* Vx   x 0 0v dc 0 PWL(0s 0v 1e-8s {HIGH})
+Vx   x 0 0v dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 150e-8 302e-8)
+VC Vcc 0 {HIGH}
 
 XUicss         Vcc x             Q1C       ICSS
 XUpss          Vcc 0 Q1C         Vo1 Vo2   PSS
@@ -43,7 +47,8 @@ XUos           Vcc 0 Vo1 Vo2     y         OS
   tran 1e-8 1000e-8
   * plot x y pointplot
   * plot x y
-  plot x y-6.1
+  let shift={HIGH*1.01}
+  plot x-shift y
   * plot x
   * plot y
 .endc
