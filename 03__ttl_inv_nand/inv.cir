@@ -8,7 +8,7 @@
 .include 1N914.mod
 
 * https://sourceforge.net/p/ngspice/discussion/133842/thread/80d38e4d/#897d
-.param   HIGH=6
+.param   HIGH=6v
 .csparam HIGH={HIGH}
 
 * Input current steering stage
@@ -36,7 +36,7 @@
 .ENDS
 
 * Vx   x 0 0v dc 0 PWL(0s 0v 1e-8s {HIGH})
-Vx   x 0 0v dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 150e-8 302e-8)
+Vx   x 0 0v dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 200e-8 402e-8)
 VC Vcc 0 {HIGH}
 
 XUicss         Vcc x             Q1C       ICSS
@@ -44,7 +44,8 @@ XUpss          Vcc 0 Q1C         Vo1 Vo2   PSS
 XUos           Vcc 0 Vo1 Vo2     y         OS
 
 .control
-  tran 1e-8 1000e-8
+  tran 0.1e-8 803e-8
+  print x[length(x)-1] y[length(y)-1]
   * plot x y pointplot
   * plot x y
   let shift={HIGH*1.01}
