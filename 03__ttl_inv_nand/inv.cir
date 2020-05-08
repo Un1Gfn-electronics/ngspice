@@ -1,6 +1,7 @@
 * https://wiki.analog.com/university/courses/electronics/electronics-lab-27
 * ngspice -nb inv.cir
 .title TTL Inverter
+.options TEMP=27 TNOM=27 WARN=1
 
 .include 2N3904.SP3
 .include SSM2212.cir
@@ -30,7 +31,7 @@
   *
 .ENDS
 
-Vx   x 0 0v
+Vx   x 0 0v dc 0 PWL(0s 0v 6e-8 6v)
 VC Vcc 0 6v
 
 XUicss         Vcc x             Q1C       ICSS
@@ -38,18 +39,8 @@ XUpss          Vcc 0 Q1C         Vo1 Vo2   PSS
 XUos           Vcc 0 Vo1 Vo2     y         OS
 
 .control
-  foreach xx 0 6v
-    alter Vx=$xx
-    op
-    echo
-    echo
-    echo
-    print x y
-    echo
-    echo
-    echo
-    shell read -r
-  end
+  tran 1ns 20e-8
+  plot x y pointplot
 .endc
 
 .end
