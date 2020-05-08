@@ -1,17 +1,23 @@
 .title SN74LS00_sim
 .include SN74LS00.cir
 
-Vs s 0 5v
-Va a 0 5v
+
+V0 Vcc 0 5v
+
+RL l Vcc 2kohm
+
+Rs a Vcc 5500ohm
+
 Vb b 0 dc 0 PULSE(0v 5v 0s 1ms 1ms 1s 2002ms)
 
-Ry y  0 20k
+* Ry y  0 20k
+CL y 0 15pF
 
-XSN74LS00 y a b s 0 SN74LS00
+XSN74LS00 y a b l 0 SN74LS00
 
 .control
   tran 1ms 8s
-  plot a
-  plot b
-  plot y
+  * plot a
+  * plot b
+  * plot y
 .endc
