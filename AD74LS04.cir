@@ -1,5 +1,4 @@
 * https://wiki.analog.com/university/courses/electronics/electronics-lab-27
-* ngspice -nb inv.cir
 .title TTL Inverter
 .options TEMP=27 TNOM=27 WARN=1
 
@@ -8,8 +7,6 @@
 .include 1N914.mod
 
 * https://sourceforge.net/p/ngspice/discussion/133842/thread/80d38e4d/#897d
-.param   HIGH=6v
-.csparam HIGH={HIGH}
 
 * Input current steering stage
 .SUBCKT ICSS   Vcc Vin             Q1C
@@ -35,50 +32,10 @@
   *
 .ENDS
 
-* Vx   x 0 0v dc 0 PWL(0s 0v 1e-8s {HIGH})
-Vx   x 0 0v dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 200e-8 402e-8)
-V0 Vcc 0 {HIGH}
-
-.SUBCKT INV   Vcc GND x         y
-  XUicss      Vcc x             Q1C       ICSS
-  XUpss       Vcc GND Q1C       Vo1 Vo2   PSS
-  XUos        Vcc GND Vo1 Vo2   y         OS
+.SUBCKT AD74LS04   Vcc GND W1        Vout
+  XUicss           Vcc W1            Q1C       ICSS
+  XUpss            Vcc GND Q1C       Vo1 Vo2   PSS
+  XUos             Vcc GND Vo1 Vo2   Vout      OS
 .ENDS
-
-XNAND1   Vcc GND x  y1   INV
-XNAND2   Vcc GND y1 y2   INV
-XNAND3   Vcc GND y2 y3   INV
-XNAND4   Vcc GND y3 y4   INV
-XNAND5   Vcc GND y4 y5   INV
-XNAND6   Vcc GND y5 y6   INV
-XNAND7   Vcc GND y6 y7   INV
-XNAND8   Vcc GND y7 y8   INV
-
-.control
-
-  tran 0.1e-8 1000e-8
-
-  * plot x
-  * plot y
-  * plot x y
-  * plot x y pointplot
-
-  * print x[length(x)-1] y[length(y)-1]
-
-  * let shift={HIGH*1.01}
-  * plot x-shift y
-
-  plot
-  + x
-  + y1+0.1*0.5
-  + y2+0.2*0.5
-  + y3+0.3*0.5
-  + y4+0.4*0.5
-  + y5+0.5*0.5
-  + y6+0.6*0.5
-  + y7+0.7*0.5
-  + y8+0.8*0.5
-
-.endc
 
 .end

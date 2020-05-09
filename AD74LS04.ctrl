@@ -1,0 +1,51 @@
+.title TTL Inverter Test
+.options TEMP=27 TNOM=27 WARN=1
+
+.param   HIGH=6v
+.csparam HIGH={HIGH}
+
+.include AD74LS04.cir
+
+Vh Vcc 0 {HIGH}
+Vw   x 0 dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 400e-8 802e-8)
+* Vw   x 0 0v dc 0 PWL(0s 0v 1e-8s {HIGH})
+
+Xinv1    Vcc 0 x  y1     AD74LS04
+Xinv2    Vcc 0 y1 y2     AD74LS04
+Xinv3    Vcc 0 y2 y3     AD74LS04
+Xinv4    Vcc 0 y3 y4     AD74LS04
+Xinv5    Vcc 0 y4 y5     AD74LS04
+Xinv6    Vcc 0 y5 y6     AD74LS04
+Xinv7    Vcc 0 y6 y7     AD74LS04
+Xinv8    Vcc 0 y7 y8     AD74LS04
+Xinv9    Vcc 0 x8 y9     AD74LS04
+
+.control
+
+  tran 0.5e-8 2000e-8
+
+  * plot x
+  * plot y
+  * plot x y
+  * plot x y pointplot
+
+  * print x[length(x)-1] y[length(y)-1]
+
+  * let shift={HIGH*1.01}
+  * plot x-shift y
+
+  plot
+  + x
+  + y1+0.025*1
+  + y2+0.025*2
+  + y3+0.025*3
+  + y4+0.025*4
+  + y5+0.025*5
+  + y6+0.025*6
+  + y7+0.025*7
+
+  plot
+  + y8+0.025*8
+  + y9+0.025*9
+
+.endc
