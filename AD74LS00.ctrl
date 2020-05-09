@@ -7,15 +7,15 @@
 .include AD74LS00.cir
 
 Vh  Vcc 0 {HIGH}
-Vw1   x 0 dc 0 PULSE(0v {HIGH} 0 2e-8 2e-8 100e-8 204e-8)
-Vw2  xx 0 dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 50e-8 102e-8)
+Vw1   x 0 dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 199e-8 400e-8)
+Vw2  xx 0 dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8  99e-8 200e-8)
 
 * Xnand1 Vcc 0 x Vcc y AD74LS00
 Xnand1 Vcc 0 x xx  y AD74LS00
 
 .control
 
-  tran 0.1e-8 700e-8
+  tran 0.1e-8 1000e-8
 
   * plot x
   plot
