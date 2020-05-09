@@ -1,3 +1,4 @@
+[Line Driver, Open Collector and Totem Pole](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019MXOSA2&l=en-US)
 
 [TTL inverter and NAND gate](https://wiki.analog.com/university/courses/electronics/electronics-lab-27)
 

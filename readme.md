@@ -9,6 +9,9 @@ mixed
   * [usage](http://ngspice.sourceforge.net/xspiceusage.html)
   * [MCUSim library](https://trac.mcusim.org/) ([GitHub](https://www.avrfreaks.net/forum/mcusim-open-source-simulator-microcontrollers))
 
+[spice](http://bwrcs.eecs.berkeley.edu/Classes/IcBook/SPICE/)
+* [doc](http://bwrcs.eecs.berkeley.edu/Classes/IcBook/SPICE/UserGuide/overview_fr.html)
+
 [ngspice](http://ngspice.sourceforge.net/)
 * [tutorial](http://ngspice.sourceforge.net/tutorials.html)
 * [doc](http://ngspice.sourceforge.net/docs.html)
