@@ -1,0 +1,54 @@
+* https://wiki.analog.com/university/courses/electronics/electronics-lab-27
+
+* ln -s AD74LS.cir AD74LS00.cir
+* ln -s AD74LS.cir AD74LS04.cir
+
+.title TTL NAND Gate and Inverter
+.options TEMP=27 TNOM=27 WARN=1
+
+.include 2N3904.SP3
+.include SSM2212.cir
+.include 1N914.mod
+
+* Input current steering stage
+.SUBCKT ICSS1  Vcc Vin             C
+  R1 Vcc B       100k
+  Q1 C   B Vin 2N3904
+.ENDS
+.SUBCKT ICSS2  Vcc Vin1 Vin2       C
+  R1 Vcc B       100k
+  Q1 C   B Vin1 2N3904
+  Q2 C   B Vin2 2N3904
+.ENDS
+
+* Phase splitting stage
+.SUBCKT PSS    Vcc GND Vin         Vo1 Vo2
+  R2 Vcc Vo1     2200
+  R3 GND Vo2     470
+  Q2 Vo1 Vin Vo2 2N3904
+.ENDS
+
+* Output Stage
+.SUBCKT OS     Vcc GND Vi1 Vi2     Vout
+  *
+  R4   Vcc Q4C                      100
+  D1   Q4E Vout                     FDLL914B
+  *
+  *    Q4C Q4B Q4E   Q3E Q3B Q3C
+  Xssm Q4C Vi1 Q4E   GND Vi2 Vout   SSM2212
+  *
+.ENDS
+
+.SUBCKT AD74LS04   Vcc GND W1        Vout
+  XUicss1          Vcc W1            Q1C       ICSS1
+  XUpss            Vcc GND Q1C       Vo1 Vo2   PSS
+  XUos             Vcc GND Vo1 Vo2   Vout      OS
+.ENDS
+
+.SUBCKT AD74LS00   Vcc GND W1 W2     Vout
+  XUicss2          Vcc W1  W2        C         ICSS2
+  XUpss            Vcc GND C         Vo1 Vo2   PSS
+  XUos             Vcc GND Vo1 Vo2   Vout      OS
+.ENDS
+
+.end
