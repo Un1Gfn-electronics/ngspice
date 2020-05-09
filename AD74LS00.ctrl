@@ -1,0 +1,30 @@
+.title TTL NAND Gate Test
+.options TEMP=27 TNOM=27 WARN=1
+
+.param   HIGH=6v
+.csparam HIGH={HIGH}
+
+.include AD74LS00.cir
+
+Vh Vcc 0 {HIGH}
+Vw   x 0 dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 100e-8 202e-8)
+* Vw   x 0 0v dc 0 PWL(0s 0v 1e-8s {HIGH})
+
+Xnand1 Vcc 0 x Vcc y AD74LS00
+* Xnand1 Vcc 0 x xx  y AD74LS00
+
+.control
+
+  tran 0.1e-8 700e-8
+
+  * plot x
+  * plot y
+  plot x y
+  * plot x y pointplot
+
+  * print x[length(x)-1] y[length(y)-1]
+
+  * let shift={HIGH*1.01}
+  * plot x-shift y
+
+.endc

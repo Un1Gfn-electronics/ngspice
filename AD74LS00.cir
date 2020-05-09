@@ -33,7 +33,7 @@
   *
 .ENDS
 
-.SUBCKT AD74LS04   Vcc GND W1 W2     Vout
+.SUBCKT AD74LS00   Vcc GND W1 W2     Vout
   XUicss           Vcc W1  W2        C         ICSS
   XUpss            Vcc GND C         Vo1 Vo2   PSS
   XUos             Vcc GND Vo1 Vo2   Vout      OS
