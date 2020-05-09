@@ -1,10 +1,13 @@
 * https://wiki.analog.com/university/courses/electronics/electronics-lab-27
-
 * ln -s AD74LS.cir AD74LS00.cir
 * ln -s AD74LS.cir AD74LS04.cir
 
 .title TTL NAND Gate and Inverter
+
 .options TEMP=27 TNOM=27 WARN=1
+
+.param   AD74LS_VCC=6v
+.csparam AD74LS_VCC={AD74LS_VCC}
 
 .include 2N3904.SP3
 .include SSM2212.cir
