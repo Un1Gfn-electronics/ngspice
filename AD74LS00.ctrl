@@ -4,7 +4,7 @@
 .param   AD74LS_VCC=6v
 .csparam AD74LS_VCC={AD74LS_VCC}
 
-.include AD74LS00.cir
+.include AD74LS.cir
 
 Vh  Vcc 0 {AD74LS_VCC}
 Vw1   x 0 dc 0 PULSE(0v {AD74LS_VCC} 0 1e-8 1e-8 199e-8 400e-8)

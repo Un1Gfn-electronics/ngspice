@@ -4,7 +4,7 @@
 .param   HIGH=6v
 .csparam HIGH={HIGH}
 
-.include AD74LS04.cir
+.include AD74LS.cir
 
 Vh Vcc 0 {HIGH}
 Vw   x 0 dc 0 PULSE(0v {HIGH} 0 1e-8 1e-8 400e-8 802e-8)
