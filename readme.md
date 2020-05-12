@@ -3,8 +3,10 @@ Logic gates circuit principles
 * [NAND](https://www.allaboutcircuits.com/textbook/digital/chpt-3/ttl-nand-and-gates/)
 * [Line Driver, Open Collector and Totem Pole](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019MXOSA2&l=en-US)
 
-[TTL Inverter and NAND gate from scratch](https://wiki.analog.com/university/courses/electronics/electronics-lab-27)
-* models
+TTL from scratch, w/ transistors
+* [NOR](http://www.play-hookey.com/digital_experiments/ttl/ttl_nor2.html)
+  * 2N4124
+* [Inverter and NAND](https://wiki.analog.com/university/courses/electronics/electronics-lab-27)
   * [2N3904](https://www.onsemi.com/products/discretes-drivers/general-purpose-and-low-vcesat-transistors/2n3904)
   * [SSM2212](https://www.analog.com/en/design-center/simulation-models/spice-models.html)
   * [1N914](https://www.onsemi.com/products/discretes-drivers/diodes-rectifiers/small-signal-switching-diodes/1n914) ([1N914](https://my.centralsemi.com/product/partpage2.php?part=1N914))
